@@ -10,16 +10,16 @@
       
       
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
     
     
       
-        <title>Keetone's Blog</title>
+        <title>Spring bean生命周期 - Keetone's Blog</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a676eddb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
       
       
     
@@ -47,11 +47,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#welcome-to-mkdocs" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -59,7 +54,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="">
-    <a href="." title="Keetone's Blog" class="md-header-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone's Blog" class="md-header-nav__button md-logo" aria-label="Keetone's Blog">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
@@ -76,7 +71,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Welcome to MkDocs
+              Spring bean生命周期
             
           </span>
         </div>
@@ -133,7 +128,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Keetone's Blog" class="md-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone's Blog" class="md-nav__button md-logo" aria-label="Keetone's Blog">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
@@ -148,60 +143,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Welcome to MkDocs
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="." title="Welcome to MkDocs" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome to MkDocs" class="md-nav__link">
       Welcome to MkDocs
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -209,10 +155,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Resources
@@ -236,7 +184,7 @@
 
 
   <li class="md-nav__item">
-    <a href="resources/Arch%20Linux%20%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="Arch Linux 安装KVM虚拟机" class="md-nav__link">
+    <a href="../Arch%20Linux%20%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="Arch Linux 安装KVM虚拟机" class="md-nav__link">
       Arch Linux 安装KVM虚拟机
     </a>
   </li>
@@ -246,11 +194,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="resources/spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring bean生命周期" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Spring bean生命周期" class="md-nav__link md-nav__link--active">
       Spring bean生命周期
     </a>
+    
   </li>
 
         
@@ -260,7 +215,7 @@
 
 
   <li class="md-nav__item">
-    <a href="resources/spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="Spring boot jvm 内存设置" class="md-nav__link">
+    <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="Spring boot jvm 内存设置" class="md-nav__link">
       Spring boot jvm 内存设置
     </a>
   </li>
@@ -272,7 +227,7 @@
 
 
   <li class="md-nav__item">
-    <a href="resources/springaop/" title="Spring AOP 自定义方法拦截器" class="md-nav__link">
+    <a href="../springaop/" title="Spring AOP 自定义方法拦截器" class="md-nav__link">
       Spring AOP 自定义方法拦截器
     </a>
   </li>
@@ -290,45 +245,6 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -338,21 +254,59 @@
                   
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+                  <h1>Spring bean生命周期</h1>
+                
+                <p>Bean factory implementations should support the standard bean lifecycle interfaces as far as possible. The full set of initialization methods and their standard order is:</p>
+<ol>
+<li>
+<p>==BeanNameAware's <code>setBeanName</code>==</p>
+</li>
+<li>
+<p>==BeanClassLoaderAware's <code>setBeanClassLoader</code>==</p>
+</li>
+<li>
+<p>==BeanFactoryAware's <code>setBeanFactory</code>==</p>
+</li>
+<li>
+<p>==EnvironmentAware's <code>setEnvironment</code>==</p>
+</li>
+<li>
+<p>==EmbeddedValueResolverAware's <code>setEmbeddedValueResolver</code>==</p>
+</li>
+<li>
+<p>ResourceLoaderAware's <code>setResourceLoader</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>ApplicationEventPublisherAware's <code>setApplicationEventPublisher</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>MessageSourceAware's <code>setMessageSource</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>ApplicationContextAware's <code>setApplicationContext</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>ServletContextAware's <code>setServletContext</code> (only applicable when running in a web application context)</p>
+</li>
+<li>
+<p>==<code>postProcessBeforeInitialization</code> methods of BeanPostProcessors==</p>
+</li>
+<li>
+<p>==InitializingBean's <code>afterPropertiesSet</code>==</p>
+</li>
+<li>
+<p>==a custom init-method definition==</p>
+</li>
+<li>
+<p>==<code>postProcessAfterInitialization</code> methods of BeanPostProcessors==</p>
+</li>
+</ol>
+<p>On shutdown of a bean factory, the following lifecycle methods apply:</p>
+<ol>
+<li><code>postProcessBeforeDestruction</code> methods of DestructionAwareBeanPostProcessors</li>
+<li>DisposableBean's <code>destroy</code></li>
+<li>a custom destroy-method definition</li>
+</ol>
                 
               
               
@@ -371,14 +325,28 @@ docs/
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="">
         
+          <a href="../Arch%20Linux%20%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="Arch Linux 安装KVM虚拟机" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                Arch Linux 安装KVM虚拟机
+              </div>
+            </div>
+          </a>
         
-          <a href="resources/Arch%20Linux%20%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="Arch Linux 安装KVM虚拟机" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+        
+          <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="Spring boot jvm 内存设置" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                Arch Linux 安装KVM虚拟机
+                Spring boot jvm 内存设置
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -405,15 +373,15 @@ docs/
       
     </div>
     
-      <script src="assets/javascripts/vendor.c51dfa35.min.js"></script>
-      <script src="assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      <script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
       
       <script>
         app = initialize({
-          base: ".",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.58d22e8e.min.js"
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
