@@ -10,16 +10,16 @@
       
       
       
-      <link rel="shortcut icon" href="/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.1">
     
     
       
-        <title>Keetone</title>
+        <title>Spring Bean生命周期 - Keetone</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.71dfd922.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.71dfd922.min.css">
       
       
     
@@ -47,6 +47,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#spring-bean" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -54,7 +59,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="/." title="Keetone" class="md-header-nav__button md-logo" aria-label="Keetone">
+    <a href="../.." title="Keetone" class="md-header-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -71,7 +76,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              
+              Spring Bean生命周期
             
           </span>
         </div>
@@ -128,7 +133,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Keetone" class="md-nav__button md-logo" aria-label="Keetone">
+    <a href="../.." title="Keetone" class="md-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -145,7 +150,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Home" class="md-nav__link">
+    <a href="../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -155,10 +160,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Spring
@@ -182,7 +189,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/spring/Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
+    <a href="../Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
       Spring AOP实现数据库读写分离
     </a>
   </li>
@@ -194,7 +201,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/spring/Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-nav__link">
+    <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-nav__link">
       Spring AOP自定义方法拦截器
     </a>
   </li>
@@ -206,7 +213,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/spring/Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-nav__link">
+    <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-nav__link">
       Spring Boot启动流程
     </a>
   </li>
@@ -216,11 +223,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/spring/spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring Bean生命周期" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Spring Bean生命周期" class="md-nav__link md-nav__link--active">
       Spring Bean生命周期
     </a>
+    
   </li>
 
         
@@ -230,7 +246,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/spring/spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-nav__link">
+    <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-nav__link">
       低配（8g内存）电脑如何设置spring-boot jvm内存
     </a>
   </li>
@@ -248,12 +264,84 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
-
+                
+                
+                  
+                
+                
+                <h1 id="spring-bean">Spring Bean生命周期</h1>
+<p>Bean factory implementations should support the standard bean lifecycle interfaces as far as possible. The full set of initialization methods and their standard order is:</p>
+<ol>
+<li>
+<p>==BeanNameAware's <code>setBeanName</code>==</p>
+</li>
+<li>
+<p>==BeanClassLoaderAware's <code>setBeanClassLoader</code>==</p>
+</li>
+<li>
+<p>==BeanFactoryAware's <code>setBeanFactory</code>==</p>
+</li>
+<li>
+<p>==EnvironmentAware's <code>setEnvironment</code>==</p>
+</li>
+<li>
+<p>==EmbeddedValueResolverAware's <code>setEmbeddedValueResolver</code>==</p>
+</li>
+<li>
+<p>ResourceLoaderAware's <code>setResourceLoader</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>ApplicationEventPublisherAware's <code>setApplicationEventPublisher</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>MessageSourceAware's <code>setMessageSource</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>ApplicationContextAware's <code>setApplicationContext</code> (only applicable when running in an application context)</p>
+</li>
+<li>
+<p>ServletContextAware's <code>setServletContext</code> (only applicable when running in a web application context)</p>
+</li>
+<li>
+<p>==<code>postProcessBeforeInitialization</code> methods of BeanPostProcessors==</p>
+</li>
+<li>
+<p>==InitializingBean's <code>afterPropertiesSet</code>==</p>
+</li>
+<li>
+<p>==a custom init-method definition==</p>
+</li>
+<li>
+<p>==<code>postProcessAfterInitialization</code> methods of BeanPostProcessors==</p>
+</li>
+</ol>
+<p>On shutdown of a bean factory, the following lifecycle methods apply:</p>
+<ol>
+<li><code>postProcessBeforeDestruction</code> methods of DestructionAwareBeanPostProcessors</li>
+<li>DisposableBean's <code>destroy</code></li>
+<li>a custom destroy-method definition</li>
+</ol>
+                
+              
               
                 
 
@@ -266,6 +354,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                Spring Boot启动流程
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                低配（8g内存）电脑如何设置spring-boot jvm内存
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -283,15 +406,15 @@
       
     </div>
     
-      <script src="/assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="/assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
       
       <script>
         app = initialize({
-          base: "/",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "/assets/javascripts/worker/search.27c6a5e6.min.js"
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

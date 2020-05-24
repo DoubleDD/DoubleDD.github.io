@@ -15,7 +15,7 @@
     
     
       
-        <title>低配（8g内存）电脑如何设置spring-boot jvm内存 - Keetone's Blog</title>
+        <title>Spring Boot启动流程 - Keetone</title>
       
     
     
@@ -48,7 +48,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#8gspring-boot-jvm" class="md-skip">
+        <a href="#new-springapplicationsources" class="md-skip">
           跳转至
         </a>
       
@@ -59,7 +59,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Keetone's Blog" class="md-header-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone" class="md-header-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -72,11 +72,11 @@
       
         <div class="md-header-nav__ellipsis">
           <span class="md-header-nav__topic md-ellipsis">
-            Keetone's Blog
+            Keetone
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              低配（8g内存）电脑如何设置spring-boot jvm内存
+              Spring Boot启动流程
             
           </span>
         </div>
@@ -133,13 +133,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Keetone's Blog" class="md-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone" class="md-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Keetone's Blog
+    Keetone
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -150,8 +150,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Welcome to Keetone's Blog" class="md-nav__link">
-      Welcome to Keetone's Blog
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
     </a>
   </li>
 
@@ -168,20 +168,32 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
-      Resources
+      Spring
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Resources" data-md-level="1">
+    <nav class="md-nav" aria-label="Spring" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Resources
+        Spring
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
+      Spring AOP实现数据库读写分离
+    </a>
+  </li>
+
         
           
           
@@ -199,30 +211,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
-      Spring AOP实现数据库读写分离
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring bean生命周期" class="md-nav__link">
-      Spring bean生命周期
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -230,13 +218,73 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Spring Boot启动流程
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
-    <a href="./" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-nav__link md-nav__link--active">
-      低配（8g内存）电脑如何设置spring-boot jvm内存
+    <a href="./" title="Spring Boot启动流程" class="md-nav__link md-nav__link--active">
+      Spring Boot启动流程
     </a>
     
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-springapplicationsources" class="md-nav__link">
+    new SpringApplication(sources)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runargs" class="md-nav__link">
+    run(args)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring Bean生命周期" class="md-nav__link">
+      Spring Bean生命周期
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-nav__link">
+      低配（8g内存）电脑如何设置spring-boot jvm内存
+    </a>
   </li>
 
         
@@ -259,8 +307,30 @@
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-springapplicationsources" class="md-nav__link">
+    new SpringApplication(sources)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runargs" class="md-nav__link">
+    run(args)
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -276,17 +346,31 @@
                   
                 
                 
-                <h1 id="8gspring-boot-jvm">低配（8g内存）电脑如何设置spring-boot jvm内存</h1>
-<pre><code>-XX:MetaspaceSize=64m
--XX:MaxMetaspaceSize=64m
--Xms100m
--Xmx100m
--Xmn100m
--Xss256k
--XX:SurvivorRatio=8
--XX:+UseG1GC
--XX:+PrintGCDetails
-</code></pre>
+                  <h1>Spring Boot启动流程</h1>
+                
+                <h2 id="new-springapplicationsources">new SpringApplication(sources)</h2>
+<ol>
+<li>判断是否为web环境</li>
+<li>读取<code>META-INF/spring.factories</code>配置文件</li>
+<li>实例化实例化springFactories</li>
+<li>设置监听</li>
+</ol>
+<h2 id="runargs">run(args)</h2>
+<ol>
+<li>开启秒表计时监控</li>
+<li>设置<a href="https://www.oracle.com/technical-resources/articles/javase/headless.html">headless模式</a></li>
+<li>获取所有的SpringApplicationRunListeners（监听程序启动的，可以在这里做一些自己的事情），然后调用这些监听<code>listeners.starting()</code></li>
+<li>实例化一个应用参数实例（就是将<code>main</code>方法的参数包装成<code>DefaultApplicationArguments</code>）</li>
+<li>准备环境（<code>Environment</code>），这里面有很多操作 <code>prepareEnvironment(listeners,applicationArguments)</code></li>
+<li>打印banner（就是控制台上面spring的那个logo）<code>printBanner(environment)</code></li>
+<li><strong><em>创建spring上下文</em></strong> <code>createApplicationContext</code>——重点</li>
+<li>创建一个故障分析器<code>new FailureAnalyzers(context)</code></li>
+<li>准备上下文<code>prepareContext(context, environment, listeners, applicationArguments,printedBanner)</code>——重点</li>
+<li>刷新上下文<code>refreshContext(context)</code>——重点</li>
+<li>刷新上下文后的后置处理<code>afterRefresh(context, applicationArguments)</code></li>
+<li>主程序中的run方法完成后再次调用第3步的监听，<code>listeners.finished(context, null)</code></li>
+<li>停止秒表</li>
+</ol>
                 
               
               
@@ -305,7 +389,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring bean生命周期" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -314,11 +398,25 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Spring bean生命周期
+                Spring AOP自定义方法拦截器
               </div>
             </div>
           </a>
         
+        
+          <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring Bean生命周期" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                Spring Bean生命周期
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>

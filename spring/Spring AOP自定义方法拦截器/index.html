@@ -15,7 +15,7 @@
     
     
       
-        <title>Spring AOP自定义方法拦截器 - Keetone's Blog</title>
+        <title>Spring AOP自定义方法拦截器 - Keetone</title>
       
     
     
@@ -59,7 +59,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Keetone's Blog" class="md-header-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone" class="md-header-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -72,7 +72,7 @@
       
         <div class="md-header-nav__ellipsis">
           <span class="md-header-nav__topic md-ellipsis">
-            Keetone's Blog
+            Keetone
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
@@ -133,13 +133,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Keetone's Blog" class="md-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone" class="md-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Keetone's Blog
+    Keetone
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -150,8 +150,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Welcome to Keetone's Blog" class="md-nav__link">
-      Welcome to Keetone's Blog
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
     </a>
   </li>
 
@@ -168,20 +168,32 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
-      Resources
+      Spring
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Resources" data-md-level="1">
+    <nav class="md-nav" aria-label="Spring" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Resources
+        Spring
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
+      Spring AOP实现数据库读写分离
+    </a>
+  </li>
+
         
           
           
@@ -225,20 +237,68 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    接口方法上的注解失效
+    自定义方法拦截器
   </a>
+  
+    <nav class="md-nav" aria-label="自定义方法拦截器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、前置准备代码，启动类，业务代码，自定义注解等，这些都可以换成自己的。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、自定义拦截器核心代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、配置方法拦截器，使其生效
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、单元测试，功能验证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    源码
+    原理剖析
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    接口方法上的注解为什么失效
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    源码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     初步解决方案
   </a>
   
@@ -246,14 +306,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     重写事务拦截器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     设置拦截器
   </a>
   
@@ -265,7 +325,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     通用解决方案
   </a>
   
@@ -287,7 +347,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     注意细节
   </a>
   
@@ -311,8 +371,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
-      Spring AOP实现数据库读写分离
+    <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-nav__link">
+      Spring Boot启动流程
     </a>
   </li>
 
@@ -323,8 +383,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring bean生命周期" class="md-nav__link">
-      Spring bean生命周期
+    <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring Bean生命周期" class="md-nav__link">
+      Spring Bean生命周期
     </a>
   </li>
 
@@ -373,20 +433,68 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    接口方法上的注解失效
+    自定义方法拦截器
   </a>
+  
+    <nav class="md-nav" aria-label="自定义方法拦截器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、前置准备代码，启动类，业务代码，自定义注解等，这些都可以换成自己的。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、自定义拦截器核心代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、配置方法拦截器，使其生效
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、单元测试，功能验证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    源码
+    原理剖析
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    接口方法上的注解为什么失效
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    源码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     初步解决方案
   </a>
   
@@ -394,14 +502,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     重写事务拦截器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     设置拦截器
   </a>
   
@@ -413,7 +521,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     通用解决方案
   </a>
   
@@ -435,7 +543,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     注意细节
   </a>
   
@@ -463,8 +571,144 @@
                 
                 
                 <h1 id="spring-aop">Spring AOP自定义方法拦截器</h1>
-<h2 id="_1">接口方法上的注解失效</h2>
-<p>最近在spring-boot项目中做mysql读写分离时遇到了一些奇葩问题，问题现象：通过常规的spring aop去拦截带有自定义注解的方法时，发现只有注解写在实现类上面时才有效，写在接口上时却不生效。<code>所用的spring-boot版本为1.x版本</code></p>
+<p>最近在spring-boot项目中做mysql读写分离时遇到了一些问题，通过常规的spring aop无法拦截接口方法上的注解。针对这个问题，通用的解决方案是<code>自定义方法拦截器</code>。
+本文将先给出具体的解决方案，然后再深入分析其中原理。</p>
+<h2 id="_1">自定义方法拦截器</h2>
+<h3 id="1">1、前置准备代码，启动类，业务代码，自定义注解等，这些都可以换成自己的。</h3>
+<pre><code class="java">@SpringBootApplication
+public class DefaultProxyCreatorApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DefaultProxyCreatorApplication.class, args);
+    }
+}
+
+public interface Test2Service {
+    /**
+     * 被标记的方法
+     */
+    @Tx
+    void a();
+
+    void b();
+
+    void c();
+}
+
+@Service
+public class Test2ServiceImpl implements Test2Service {
+
+    @Override
+    public void a() {
+        System.out.println(&quot;test2 method a&quot;);
+    }
+
+    /**
+     * 被标记的方法
+     */
+    @Tx
+    @Override
+    public void b() {
+        System.out.println(&quot;test2 method b&quot;);
+    }
+
+    @Override
+    public void c() {
+        System.out.println(&quot;test2 method c&quot;);
+    }
+}
+
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD, ElementType.TYPE})
+public @interface Tx {
+}
+</code></pre>
+
+<h3 id="2">2、自定义拦截器核心代码</h3>
+<pre><code class="java">public class TxInterceptor implements MethodInterceptor {
+    @Override
+    public Object invoke(MethodInvocation invocation) throws Throwable {
+        String name = invocation.getMethod().getName();
+        System.out.println(String.format(&quot;------------%s: before----------&quot;, name));
+        Object object = invocation.proceed();
+        System.out.println(String.format(&quot;------------%s: after----------&quot;, name));
+        return object;
+    }
+}
+
+public class TxMethodPointcutAdvisor extends StaticMethodMatcherPointcutAdvisor {
+    /**
+     * 拦截规则：
+     * 1: 接口类名上有 @Tx 注解
+     * 2: 接口方法名上有 @Tx 注解
+     *
+     * @param method
+     * @param targetClass
+     * @return
+     */
+    @Override
+    public boolean matches(Method method, Class&lt;?&gt; targetClass) {
+        return methodCanPass(method) || classCanPass(method.getDeclaringClass());
+    }
+
+    private boolean methodCanPass(Method method) {
+        return method.isAnnotationPresent(Tx.class);
+    }
+
+    private boolean classCanPass(Class&lt;?&gt; clazz) {
+        return clazz.isAnnotationPresent(Tx.class);
+    }
+}
+</code></pre>
+
+<h3 id="3">3、配置方法拦截器，使其生效</h3>
+<pre><code class="java">@Configuration
+public class MethodInterceptorConfig {
+
+    @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
+        // 这个类就是自动代理创建器，能够自动的为每个bean生成代理
+        return new DefaultAdvisorAutoProxyCreator();
+    }
+
+    @Bean
+    public TxMethodPointcutAdvisor methodPointcutAdvisor(TxInterceptor txInterceptor) {
+        TxMethodPointcutAdvisor advisor = new TxMethodPointcutAdvisor();
+        advisor.setAdvice(txInterceptor);
+        return advisor;
+    }
+
+    @Bean
+    public TxInterceptor methodInterceptor() {
+        return new TxInterceptor();
+    }
+}
+</code></pre>
+
+<h3 id="4">4、单元测试，功能验证</h3>
+<pre><code class="java">@SpringBootTest
+class TxInterceptorTest {
+
+    @Autowired
+    private Test2Service test2Service;
+
+    @Test
+    void test1() {
+        test2Service.a();
+        System.out.println(&quot;\n&quot;);
+        test2Service.b();
+        System.out.println(&quot;\n&quot;);
+        test2Service.c();
+    }
+}
+</code></pre>
+
+<p>测试结果如下：</p>
+<p><img alt="" src="../test-result.png" /></p>
+<p>可以看到<code>service#a</code>和<code>service#b</code>这两个方法都被拦截到了。其中方法 a 的注解在接口上，方法b的注解在实现类上，可见问题已解决。</p>
+<h2 id="_2">原理剖析</h2>
+<h2 id="_3">接口方法上的注解为什么失效</h2>
 <pre><code class="java">@Aspect
 @Component
 @EnableAspectJAutoProxy
@@ -487,7 +731,7 @@ public class DataSourceAspect {
 
 <p>这是一段非常普通的spring aop拦截器代码，由于项目中使用的事务注解全部都是写在接口的方法上的，所以我也就习惯性的把注解<code>@DataSource</code>写在接口的方法上，一调试代码，这时候发现spring aop根本就不鸟你，拦截器没生效。网上一通搜索后，发现遇到这个问题的人非常多，答案也是五花八门，有的说是spring-boot 1.x版本的bug，升级到2.x版本就可以了。然后就屁颠屁颠的把spring-boot版本换成最新的<code>2.3.0.RELEASE</code>版本，根本就没用；也有人分析说aop代理的是spring的bean实例，然而接口很显然是不能实例化的，所以aop无法生效。查了很多，都是分析为什么不起作用的，可能是我搜索的关键字不对的原因，就没怎么看到有解决方案的帖子。
 同样的写在接口方法上的<code>@Transactional</code>为什么就能生效呢（至于spring事务原理的解析这里就不讲了，网上一大把）？</p>
-<h2 id="_2">源码</h2>
+<h2 id="_4">源码</h2>
 <p>通过<code>@EnableTransactionManagement</code>进去看了下spring事务的源码，</p>
 <p><img alt="@EnableTransactionManagement" src="https://upload-images.jianshu.io/upload_images/8810368-ce3cbe1fb6a52c45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>上图中看到<code>@EnableTransactionManagement</code>注解上导入了一个类，不知道干什么的，点进去看看</p>
@@ -505,8 +749,8 @@ public class DataSourceAspect {
 <pre><code>重写事务拦截器，在事务处理的前后加上自己的逻辑，切换数据源。然后将自己重写的事务拦截器设置到刚开始的 advisor 中就可已了
 </code></pre>
 
-<h2 id="_3">初步解决方案</h2>
-<h3 id="_4">重写事务拦截器</h3>
+<h2 id="_5">初步解决方案</h2>
+<h3 id="_6">重写事务拦截器</h3>
 <pre><code class="java">public class CustomInterceptor extends TransactionInterceptor {
 
     private static final long serialVersionUID = 1154144110124764905L;
@@ -558,7 +802,7 @@ enum DatasourceType {
 }
 </code></pre>
 
-<h3 id="_5">设置拦截器</h3>
+<h3 id="_7">设置拦截器</h3>
 <p>将自己重写后的事务拦截器设置到<code>advisor</code>中，将它默认的覆盖掉</p>
 <pre><code class="java">@Configuration
 public class TransactionConfig implements InitializingBean, BeanFactoryAware {
@@ -589,7 +833,7 @@ public class TransactionConfig implements InitializingBean, BeanFactoryAware {
 <p>到这里，对于接口上有事务注解的方法，我们已经可以动态的切换它的数据源了，而且还可以不用自定注解，直接用spring自带的注解就好。
         那经过上面的一顿操作后，终于可以在事务的前后做自己的事情了。</p>
 <p>从某种意义上来将，这个方案确实解决了接口方法上的注解问题，但也只是仅限于spring的事务注解。那对于本文标题所述的问题，在本质上并没有得到解决，因为事务这里是spring-transaction模块实现的注解处理，我们这里只是用了一种投机取巧的方法达到了目的而已。</p>
-<h2 id="_6">通用解决方案</h2>
+<h2 id="_8">通用解决方案</h2>
 <p>所谓通用解决方案就是模仿spring-transaction写一个自己的方法拦截器，那这里就不限于注解了，通过注解也是可以的，只不过除了接口方法上的注解无法直接通过spring aop拦截外，其他的方式好像都可以通过spring aop直接实现。</p>
 <p>实现一个自定义的方法拦截器：</p>
 <ol>
@@ -846,7 +1090,7 @@ class TxInterceptorTest {
 <p>单元测试结果如下：</p>
 <p><img alt="image-20200517211554893" src="/home/kedong/Pictures/test-result-pro.png" /></p>
 <p>可以看到<code>service#a</code>和<code>service#b</code>这两个方法都被拦截到了。其中方法 a 的注解在接口上，方法b的注解在实现类上，可见这已经达到了我的目的，成功的拦截到了接口方法上的注解。</p>
-<h3 id="_7">注意细节</h3>
+<h3 id="_9">注意细节</h3>
 <p>那如果说仅仅将上面的配置代码复制到项目中去用的话，是可以拦截接口方法注解的，但是如果要和spring的事务注解一起用的话，那么你可能要失望了，因为它会先经过事务的拦截，然后才到你的自定义拦截器，要解决这个问题很简单，将advisor设置一个执行顺序就可以了</p>
 <pre><code class="java">    @Bean
     public TxMethodPointcutAdvisor methodPointcutAdvisor(TxInterceptor txInterceptor) {
@@ -880,7 +1124,7 @@ class TxInterceptorTest {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../.." title="Welcome to Keetone's Blog" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -889,19 +1133,19 @@ class TxInterceptorTest {
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Welcome to Keetone's Blog
+                Spring AOP实现数据库读写分离
               </div>
             </div>
           </a>
         
         
-          <a href="../spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                Spring AOP实现数据库读写分离
+                Spring Boot启动流程
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

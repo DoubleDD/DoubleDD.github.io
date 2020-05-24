@@ -15,7 +15,7 @@
     
     
       
-        <title>Spring AOP实现数据库读写分离 - Keetone's Blog</title>
+        <title>Spring AOP实现数据库读写分离 - Keetone</title>
       
     
     
@@ -59,7 +59,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Keetone's Blog" class="md-header-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone" class="md-header-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -72,7 +72,7 @@
       
         <div class="md-header-nav__ellipsis">
           <span class="md-header-nav__topic md-ellipsis">
-            Keetone's Blog
+            Keetone
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
@@ -133,13 +133,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Keetone's Blog" class="md-nav__button md-logo" aria-label="Keetone's Blog">
+    <a href="../.." title="Keetone" class="md-nav__button md-logo" aria-label="Keetone">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Keetone's Blog
+    Keetone
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -150,8 +150,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Welcome to Keetone's Blog" class="md-nav__link">
-      Welcome to Keetone's Blog
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
     </a>
   </li>
 
@@ -168,32 +168,20 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
-      Resources
+      Spring
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Resources" data-md-level="1">
+    <nav class="md-nav" aria-label="Spring" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Resources
+        Spring
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-nav__link">
-      Spring AOP自定义方法拦截器
-    </a>
-  </li>
-
         
           
           
@@ -237,28 +225,22 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    实现步骤及原理
+    代码实现
   </a>
   
-    <nav class="md-nav" aria-label="实现步骤及原理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#abstractroutingdatasource" class="md-nav__link">
     AbstractRoutingDataSource详解
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    方法拦截
+      
+        <li class="md-nav__item">
+  <a href="#spring-aop_1" class="md-nav__link">
+    spring aop自定义方法拦截器
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -275,8 +257,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring bean生命周期" class="md-nav__link">
-      Spring bean生命周期
+    <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-nav__link">
+      Spring AOP自定义方法拦截器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-nav__link">
+      Spring Boot启动流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring Bean生命周期" class="md-nav__link">
+      Spring Bean生命周期
     </a>
   </li>
 
@@ -325,28 +331,22 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    实现步骤及原理
+    代码实现
   </a>
   
-    <nav class="md-nav" aria-label="实现步骤及原理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#abstractroutingdatasource" class="md-nav__link">
     AbstractRoutingDataSource详解
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    方法拦截
+      
+        <li class="md-nav__item">
+  <a href="#spring-aop_1" class="md-nav__link">
+    spring aop自定义方法拦截器
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -369,7 +369,7 @@
                 <h1 id="spring-aop">Spring AOP实现数据库读写分离</h1>
 <p>读写分离实本质上就是把程序对数据库读操作和写操作分发到不同的数据库中。不同的数据库就是多个数据源，那<code>读写分离</code>这里就可以简单理解为多数据源问题。</p>
 <p>在spring中，多数据源问题可以通过<code>AbstractRoutingDataSource</code>和spring aop来解决。</p>
-<h2 id="_1">实现步骤及原理</h2>
+<h2 id="_1">代码实现</h2>
 <ol>
 <li>继承抽象类<code>AbstractRoutingDataSource</code>，实现<code>determineCurrentLookupKey</code>方法。</li>
 <li>创建切面拦截器，拦截符合条件的方法。</li>
@@ -600,7 +600,7 @@ public class AopConfig {
 
 </code></pre>
 
-<h3 id="abstractroutingdatasource">AbstractRoutingDataSource详解</h3>
+<h2 id="abstractroutingdatasource">AbstractRoutingDataSource详解</h2>
 <p><img alt="图-1" src="../image-20200523161614781.png" /></p>
 <p>​                                                                                                   （图-1）</p>
 <p>当程序执行CURD操作时，就会调用<code>AbstractRoutingDataSource</code>类的<code>getConnection</code>方法来获取数据库连接<code>Connection</code>对象，最终通过该连接对象来访问数据库。而<code>AbstractRoutingDataSource</code>这个抽象类实现了<code>DataSource</code>接口，同时也实现了<code>DataSource</code>接口下的两个<code>getConnection</code>方法，源码如下：</p>
@@ -620,8 +620,9 @@ public class AopConfig {
 <p>由于<code>AbstractRoutingDataSource</code>类同时还实现了<code>InitializingBean</code>接口，因此当这个bean实例化完成的时候，会触发<code>afterPropertiesSet</code>方法执行，该方法主要时通过<code>targetDataSources</code>生成<code>resolvedDataSources</code>对象，以及设置默认数据源。在（图-3）中的<code>determineTargetDataSource</code>方法中，会从<code>resolvedDataSources</code>对象中获取<code>DataSource</code>。</p>
 <p><img alt="image-20200523214251805" src="../image-20200523214251805.png" /></p>
 <p>​                                                                                                   （图-8）</p>
-<h3 id="_2">方法拦截</h3>
-<p>在本文的解决方案代码中并没有使用常规的aop拦截器写法，类似下面这种。因为在本解决方案中除了拦截了自定的<code>@Datasource</code>注解之外，还拦截了<code>@Transactional</code>注解。我们都知道<code>@Transactional</code>注解写在接口方法和实现类方法上是都可以生效的，那下面这种普通的aop写法对接口方法上的注解是无法拦截的，因此才使用了自定义方法拦截器的写法。对于如何解决spring aop无法拦截接口方法上的注解问题，在<a href="">Spring AOP自定义方法拦截器</a>这篇文章里面有详细说明。</p>
+<h2 id="spring-aop_1">spring aop自定义方法拦截器</h2>
+<p>在本文的解决方案代码中并没有使用常规的aop拦截器写法，类似下面这种。因为在本解决方案中除了拦截了自定的<code>@Datasource</code>注解之外，还拦截了<code>@Transactional</code>注解。我们都知道<code>@Transactional</code>注解写在接口方法和实现类方法上是都可以生效的，那下面这种普通的aop写法对接口方法上的注解是无法拦截的，因此才使用了自定义方法拦截器的写法。</p>
+<p>对于如何解决spring aop无法拦截接口方法上的注解问题，在<a href="/spring/Spring AOP自定义方法拦截器/">Spring AOP自定义方法拦截器</a>这篇文章里面有详细说明。</p>
 <pre><code class="java">@Aspect
 @Component
 @EnableAspectJAutoProxy
@@ -659,7 +660,7 @@ public class DataSourceAspect {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -668,19 +669,19 @@ public class DataSourceAspect {
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Spring AOP自定义方法拦截器
+                Home
               </div>
             </div>
           </a>
         
         
-          <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring bean生命周期" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                Spring bean生命周期
+                Spring AOP自定义方法拦截器
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
