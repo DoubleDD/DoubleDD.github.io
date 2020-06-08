@@ -1,0 +1,875 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>关于SpringMVC拦截器执行两遍的原因分析以及如何解决 - Keetone</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#springmvc" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="">
+    <a href="../.." title="Keetone" class="md-header-nav__button md-logo" aria-label="Keetone">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Keetone
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              关于SpringMVC拦截器执行两遍的原因分析以及如何解决
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Keetone" class="md-nav__button md-logo" aria-label="Keetone">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Keetone
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Java
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Java" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/%20volatile/" title="volatile的用途" class="md-nav__link">
+      volatile的用途
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/" title="CAS" class="md-nav__link">
+      CAS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Spring
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Spring" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Spring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
+      Spring AOP实现数据库读写分离
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-nav__link">
+      Spring AOP自定义方法拦截器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-nav__link">
+      Spring Boot启动流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring Bean生命周期" class="md-nav__link">
+      Spring Bean生命周期
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-nav__link">
+      低配（8g内存）电脑如何设置spring-boot jvm内存
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        关于SpringMVC拦截器执行两遍的原因分析以及如何解决
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="关于SpringMVC拦截器执行两遍的原因分析以及如何解决" class="md-nav__link md-nav__link--active">
+      关于SpringMVC拦截器执行两遍的原因分析以及如何解决
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handlerinterceptor" class="md-nav__link">
+    什么情况下HandlerInterceptor会执行两遍？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handlerinterceptor_1" class="md-nav__link">
+    如何解决HandlerInterceptor拦截器执行多次问题？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springmvc_1" class="md-nav__link">
+    springmvc拦截器为什么会执行多次？
+  </a>
+  
+    <nav class="md-nav" aria-label="springmvc拦截器为什么会执行多次？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handlerinterceptor_2" class="md-nav__link">
+    HandlerInterceptor相关知识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlermethodreturnvaluehandler" class="md-nav__link">
+    HandlerMethodReturnValueHandler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelandview" class="md-nav__link">
+    ModelAndView对象的流转过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tomcat" class="md-nav__link">
+    tomcat对错误页面的处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handlerinterceptor" class="md-nav__link">
+    什么情况下HandlerInterceptor会执行两遍？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handlerinterceptor_1" class="md-nav__link">
+    如何解决HandlerInterceptor拦截器执行多次问题？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springmvc_1" class="md-nav__link">
+    springmvc拦截器为什么会执行多次？
+  </a>
+  
+    <nav class="md-nav" aria-label="springmvc拦截器为什么会执行多次？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handlerinterceptor_2" class="md-nav__link">
+    HandlerInterceptor相关知识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlermethodreturnvaluehandler" class="md-nav__link">
+    HandlerMethodReturnValueHandler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelandview" class="md-nav__link">
+    ModelAndView对象的流转过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tomcat" class="md-nav__link">
+    tomcat对错误页面的处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="springmvc">关于SpringMVC拦截器执行两遍的原因分析以及如何解决</h1>
+<p>最近在项目中碰到了如题的问题，在spring-boot项目中，同一次http请求，HandlerInterceptor拦截器执行了两次，与此同时这个问题还有个特点，它并没有干扰具体的业务功能，就是controller正常返回，没有任何错误。</p>
+<h2 id="handlerinterceptor">什么情况下HandlerInterceptor会执行两遍？</h2>
+<p>并不是所有的controller都是这样的，经过测试目前发现有以下两种的controller会出现这样的情况（前提是你没有重写过它的<strong>RequestMappingHandlerAdapter</strong>和<strong>ViewNameMethodReturnValueHandler</strong>）。</p>
+<pre><code class="java">@Controller
+public class GreetingController {
+
+    /**
+     * 第一种情况：方法返回值类型为 void 类型，并且不存在返回内容对应的视图
+     *
+     * @param name
+     * @throws IOException
+     */
+    @RequestMapping(&quot;/greet1&quot;)
+    public void greet1(String name) throws IOException {
+        System.out.println(&quot;name = &quot; + name);
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        HttpServletResponse response = ((ServletRequestAttributes) requestAttributes).getResponse();
+        PrintWriter writer = response.getWriter();
+        writer.write(name);
+        writer.flush();
+        writer.close();
+    }
+
+
+    /**
+     * 第二种情况：方法返回值类型为 String 类型，并且不存在返回内容对应的视图
+     *
+     * @param name
+     * @return
+     */
+    @RequestMapping(&quot;/greet2&quot;)
+    public String greet2(String name) {
+        System.out.println(&quot;name = &quot; + name);
+        return name;
+    }
+
+}
+</code></pre>
+
+<p>对于以上两种情况，你所有的<strong>HandlerInterceptor</strong>都至少会执行两遍，甚至三遍。这里先给出怎么解决这个问题的方案，后面再分析问题原因。</p>
+<h2 id="handlerinterceptor_1">如何解决<strong>HandlerInterceptor</strong>拦截器执行多次问题？</h2>
+<p>重写<strong>RequestMappingHandlerAdapter</strong>和<strong>ViewNameMethodReturnValueHandler</strong>这两个类，并将其注入容器中</p>
+<pre><code class="java">public class CustomizedHandlerAdapter extends RequestMappingHandlerAdapter {
+
+    @Override
+    public void afterPropertiesSet() {
+        super.afterPropertiesSet();
+        setReturnValueHandlers(getReturnValueHandlers().stream().filter(
+                h -&gt; h.getClass() != ViewNameMethodReturnValueHandler.class
+        ).collect(Collectors.toList()));
+    }
+}
+
+public class HandlerVoidMethod extends ViewNameMethodReturnValueHandler {
+
+    @Override
+    public void handleReturnValue(Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
+        /*
+         * 这里只处理了void返回值的方法，对于String返回值的方法则没有处理，原因是系统中可能还会用到springmvc的视图功能（例如jsp）
+         * 如果说是前后分离的项目，springmvc层只提供纯接口的话，那么可以将下面代码全部删除，
+         * 只写上一行  mavContainer.setRequestHandled(true);  即可
+         */
+        if (void.class == returnType.getParameterType()) {
+            mavContainer.setRequestHandled(true);//这行代码是重点，它的作用是告诉其他组件本次请求已经被程序内部处理完毕，可以直接放行了
+        } else {
+            super.handleReturnValue(returnValue, returnType, mavContainer, webRequest);
+        }
+    }
+}
+
+@Configuration
+public class WebConfig {
+
+    @Bean
+    public HandlerVoidMethod handlerVoidMethod() {
+        return new HandlerVoidMethod();
+    }
+
+    @Bean
+    public CustomizedHandlerAdapter handlerAdapter(HandlerVoidMethod handlerVoidMethod) {
+        CustomizedHandlerAdapter chl = new CustomizedHandlerAdapter();
+        chl.setCustomReturnValueHandlers(Arrays.asList(handlerVoidMethod));
+        return chl;
+    }
+}
+</code></pre>
+
+<p>通过以上代码，则能解决mvc拦截器执行多次的问题。</p>
+<h2 id="springmvc_1">springmvc拦截器为什么会执行多次？</h2>
+<p>简单来讲就是controller中的void方法会导致springmvc使用你的请求url作为视图名称，然后它在渲染视图之前会检查你的视图名称，发现这视图会导致循环请求，就抛出一个ServletException，tomcat截取到这个异常后就转发到/error页面，就在这个转发的过程中导致了springmvc重新开始<strong>DispatcherServlet</strong>的整个流程，所以拦截器自然就执行了多次。</p>
+<h3 id="handlerinterceptor_2">HandlerInterceptor相关知识</h3>
+<p>对于拦截器<strong>HandlerInterceptor</strong>的机制需要有个大致的了解，这里简单讲下springmvc中的拦截器是怎么执行的，我们都知道springmvc中处理请求都是从<strong>DispatcherServlet</strong>的<strong>doDispatch</strong>方法开始的，</p>
+<pre><code class="java">// DispatcherServlet类 doDispatch方法
+protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    ......省略部分前面的代码，直接从 1035行这里开始
+
+    // HandlerExecutionChain mappedHandler = getHandler(processedRequest); 在1016行有设置mappedHandler的值，HandlerExecutionChain是一个拦截器调用链，它是链式执行的，这里是链式执行所有的拦截器里面的 preHandle 方法
+    if (!mappedHandler.applyPreHandle(processedRequest, response)) {
+        return;
+    }
+
+    // 真正代用我们自己写的业务代码的入口
+    mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
+
+    if (asyncManager.isConcurrentHandlingStarted()) {
+        return;
+    }
+
+    applyDefaultViewName(processedRequest, mv);
+    // 这里是链式执行所有的拦截器里面的 postHandle 方法
+    mappedHandler.applyPostHandle(processedRequest, response, mv);
+
+    ......省略后面的代码
+}
+
+</code></pre>
+
+<p>多个拦截器它的执行顺序是和栈的入栈出栈顺序有点类似，我们把<strong>preHandle</strong>方法比作入栈，<strong>postHandle</strong>方法比作出栈，所以就是<strong>preHandle</strong>先执行的<strong>postHandle</strong>反而后执行。</p>
+<p>例如我们有三个拦截器，分别为 A，B，C。它们的执行顺序如下图：</p>
+<p><img alt="image-20200607182601897" src="../image-20200607182601897.png" /></p>
+<p>拦截器执行的相关源码：</p>
+<pre><code class="java">    boolean applyPreHandle(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        HandlerInterceptor[] interceptors = getInterceptors();//获取所有的拦截器
+        if (!ObjectUtils.isEmpty(interceptors)) {
+            for (int i = 0; i &lt; interceptors.length; i++) {// 这里是从第一个开始
+                HandlerInterceptor interceptor = interceptors[i];
+                if (!interceptor.preHandle(request, response, this.handler)) {
+                    triggerAfterCompletion(request, response, null);
+                    return false;
+                }
+                this.interceptorIndex = i;
+            }
+        }
+        return true;
+    }
+
+    void applyPostHandle(HttpServletRequest request, HttpServletResponse response, @Nullable ModelAndView mv) throws Exception {
+        HandlerInterceptor[] interceptors = getInterceptors();//获取所有的拦截器
+        if (!ObjectUtils.isEmpty(interceptors)) {
+            for (int i = interceptors.length - 1; i &gt;= 0; i--) {// 这里是从最后一个开始
+                HandlerInterceptor interceptor = interceptors[i];
+                interceptor.postHandle(request, response, this.handler, mv);
+            }
+        }
+    }
+
+</code></pre>
+
+<p>上面简要的讲了下拦截器从哪里开始以及它的执行顺序相关的东西，经过了拦截器的前置拦截之后，springmvc通过反射执行了我们的具体业务方法，那在执行具体的业务方法时有两个很重要的问题，一是如何处理我们业务方法的参数（千奇百怪的）；二是如何处理我们业务方法的返回值（也是多种多样的）。在springmvc中通过<strong>HandlerMethodArgumentResolver</strong>来处理方法参数，通过<strong>HandlerMethodReturnValueHandler</strong>来处理方法返回值。在本文中，方法的入参与本文所讨论的问题关系不大，因此这里就不展开叙述<strong>HandlerMethodArgumentResolver</strong>相关的东西了。重点说下与问题相关的<strong>HandlerMethodReturnValueHandler</strong>类。</p>
+<h3 id="handlermethodreturnvaluehandler">HandlerMethodReturnValueHandler</h3>
+<p>对于controller方法的返回值的处理，springmvc框架中内置了20多种默认的返回值处理器，在<strong>RequestMappingHandlerAdapter#getDefaultReturnValueHandlers</strong>方法中可以看到它设置的一些默认的HandlerMethodReturnValueHandler</p>
+<pre><code class="java">    private List&lt;HandlerMethodReturnValueHandler&gt; getDefaultReturnValueHandlers() {
+        List&lt;HandlerMethodReturnValueHandler&gt; handlers = new ArrayList&lt;&gt;();
+
+        // Single-purpose return value types
+        // 返回值类型是ModelAndView或其子类
+        handlers.add(new ModelAndViewMethodReturnValueHandler());
+        // 返回值类型是Model或其子类
+        handlers.add(new ModelMethodProcessor());
+        // 返回值类型是View或其子类
+        handlers.add(new ViewMethodReturnValueHandler());
+
+        // ResponseBody注解
+        handlers.add(new ResponseBodyEmitterReturnValueHandler(getMessageConverters(), this.reactiveAdapterRegistry, this.taskExecutor, this.contentNegotiationManager));
+        handlers.add(new StreamingResponseBodyReturnValueHandler());
+
+        // 用来处理返回值类型是HttpEntity的方法
+        handlers.add(new HttpEntityMethodProcessor(getMessageConverters(), this.contentNegotiationManager, this.requestResponseBodyAdvice));
+        handlers.add(new HttpHeadersReturnValueHandler());
+        handlers.add(new CallableMethodReturnValueHandler());
+        handlers.add(new DeferredResultMethodReturnValueHandler());
+        handlers.add(new AsyncTaskMethodReturnValueHandler(this.beanFactory));
+
+        // Annotation-based return value types
+        // 返回值有@ModelAttribute注解
+        handlers.add(new ModelAttributeMethodProcessor(false));
+        handlers.add(new RequestResponseBodyMethodProcessor(getMessageConverters(), this.contentNegotiationManager, this.requestResponseBodyAdvice));
+
+        // Multi-purpose return value types
+        // 返回值是void或String, 将返回的字符串作为view视图的名字
+        handlers.add(new ViewNameMethodReturnValueHandler());
+        // 返回值类型是Map
+        handlers.add(new MapMethodProcessor());
+
+        // Custom return value types，自定义返回值处理
+        if (getCustomReturnValueHandlers() != null) {
+            handlers.addAll(getCustomReturnValueHandlers());
+        }
+
+        // Catch-all
+        if (!CollectionUtils.isEmpty(getModelAndViewResolvers())) {
+            handlers.add(new ModelAndViewResolverMethodReturnValueHandler(getModelAndViewResolvers()));
+        }
+        else {
+            handlers.add(new ModelAttributeMethodProcessor(true));
+        }
+        return handlers;
+    }
+</code></pre>
+
+<p>在本文的问题中，controller的返回值为void和String两种都有，刚好对应<strong>ViewNameMethodReturnValueHandler</strong>这个处理器</p>
+<pre><code class="java">public class ViewNameMethodReturnValueHandler implements HandlerMethodReturnValueHandler {
+
+    @Override
+    public boolean supportsReturnType(MethodParameter returnType) {
+        Class&lt;?&gt; paramType = returnType.getParameterType();
+        // 返回值类型匹配，void和String
+        return (void.class == paramType || CharSequence.class.isAssignableFrom(paramType));
+    }
+
+    @Override
+    public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
+            ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
+        // 返回值处理这里，只处理了String类型的返回值，将返回值的结果作为视图名称设置到ModelAndViewContainer对象中
+        // 对于void类型的返回值，这里并没有处理，
+        if (returnValue instanceof CharSequence) {
+            String viewName = returnValue.toString();
+            mavContainer.setViewName(viewName);
+            if (isRedirectViewName(viewName)) {
+                mavContainer.setRedirectModelScenario(true);
+            }
+        }
+        else if (returnValue != null) {
+            // should not happen
+            throw new UnsupportedOperationException(&quot;Unexpected return type: &quot; +
+                    returnType.getParameterType().getName() + &quot; in method: &quot; + returnType.getMethod());
+        }
+    }
+}
+</code></pre>
+
+<p>这里有个小细节，handleReturnValue方法中returnValue参数前面是加了一个<strong>@Nullable</strong>注解的，意味这这个参数的值可能是<strong>null</strong>，当你的controller为void方法时，returnValue就会为null，那handleReturnValue这个方法就不会对<strong>mavContainer</strong>这个对象做任何处理。</p>
+<h3 id="modelandview">ModelAndView对象的流转过程</h3>
+<p><strong>mavContainer</strong>这个参数是从<strong>RequestMappingHandlerAdapter</strong>中的<strong>invokeHandlerMethod</strong>方法中创建并一路传进来的，整个调用链如下图：</p>
+<p><img alt="image-20200607193526861" src="../image-20200607193526861.png" /></p>
+<p>最终在<strong>DispatcherServlet</strong>的<strong>doDispatch</strong>方法中得到上图中最后返回的ModelAndView对象</p>
+<pre><code class="java">protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+                ......省略部分前面的代码
+                // Actually invoke the handler.
+                mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
+
+                ......省略部代码
+
+                // 直接看这里，设置默认视图
+                applyDefaultViewName(processedRequest, mv);
+
+                ......省略部分前面的代码
+}
+
+private void applyDefaultViewName(HttpServletRequest request, @Nullable ModelAndView mv) throws Exception {
+    // 这里判断是否设置了视图，通过前面的分析，我们可以知道，由于我们的controller是void类型的，所以是没有设置视图的
+    if (mv != null &amp;&amp; !mv.hasView()) {
+        // 获取默认视图名称
+        String defaultViewName = getDefaultViewName(request);
+        if (defaultViewName != null) {
+            // 设置默认视图名称
+            mv.setViewName(defaultViewName);
+        }
+    }
+}
+</code></pre>
+
+<p>获取默认视图名称的方法：<strong>getDefaultViewName</strong>，由于这个方法里面调用栈比较深，这里直接给出它调用的最里面的那个方法：</p>
+<p><strong>org.springframework.web.util.UrlPathHelper#getPathWithinApplication</strong></p>
+<pre><code class="java">    public String getPathWithinApplication(HttpServletRequest request) {
+        String contextPath = getContextPath(request);
+        String requestUri = getRequestUri(request);
+        String path = getRemainingPath(requestUri, contextPath, true);
+        if (path != null) {
+            // Normal case: URI contains context path.
+            return (StringUtils.hasText(path) ? path : &quot;/&quot;);
+        }
+        else {
+            return requestUri;
+        }
+    }
+</code></pre>
+
+<p>最后这个方法其实就是获取了controller的requestMapping，然后返回出去。再结合前面的<strong>getDefaultViewName</strong>方法可知，这个默认视图名称就是requestMapping的值。在渲染视图之前springmvc还做了个判断，就是看你的视图名称是不是本次请的uri中的一部分或者和uri一样，如果是的话，就会抛出一个异常，说你是一个循环视图路径</p>
+<p><img alt="image-20200607195847031" src="../image-20200607195847031.png" /></p>
+<h3 id="tomcat">tomcat对错误页面的处理</h3>
+<p>在tomcat的<strong>StandardHostValve</strong>类中，它获取到了上面springmvc抛出的ServletException异常，它写了个很明了的注释，寻找一个应用级别的错误页面，如果存在的话则渲染它（就是重定向到错误页面）</p>
+<p><img alt="image-20200607200432391" src="../image-20200607200432391.png" /></p>
+<p>通过debug直到执行到下面的代码，通过下图中第二行后面的debug信息也可以看到错误页面的路径为<strong>/error</strong></p>
+<p><img alt="image-20200607201522091" src="../image-20200607201522091.png" /></p>
+<p>通过<strong>RequestDispatcher</strong>这个类名能猜到应该是请求分发器，看看它是如何创建<strong>RequestDispatcher</strong>对象的</p>
+<pre><code class="java">    public RequestDispatcher getRequestDispatcher(final String path) {
+        ......省略部代码
+
+        try {     
+            ......省略部代码
+
+            // Construct a RequestDispatcher to process this request
+            // 创建一个新的请求调度器来处理该请求
+            return new ApplicationDispatcher(wrapper, uri, wrapperPath, pathInfo,
+                    queryString, mapping, null);
+        } finally {          
+            mappingData.recycle();
+        }
+    }
+</code></pre>
+
+<p><img alt="image-20200607201734256" src="../image-20200607201734256.png" /></p>
+<p>这里可以很明显的看到开始了请求转发，这对于springmvc来讲就已经开始了一个新的请求，它会再次进入到<strong>DispatcherServlet</strong>的<strong>doDispatch</strong>方法中，整个springmvc的流程会再重新走一遍，所以拦截器自然也会再执行一次，只不过这次在拦截器中看到的url已经变成<strong>/error</strong>了，而不是之前的requestMapping里面的值。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="">
+        
+          <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                低配（8g内存）电脑如何设置spring-boot jvm内存
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

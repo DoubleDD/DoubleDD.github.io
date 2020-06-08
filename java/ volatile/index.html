@@ -15,7 +15,7 @@
     
     
       
-        <title>Spring Bean生命周期 - Keetone</title>
+        <title>volatile的用途 - Keetone</title>
       
     
     
@@ -48,7 +48,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#spring-bean" class="md-skip">
+        <a href="#volatile" class="md-skip">
           跳转至
         </a>
       
@@ -76,7 +76,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Spring Bean生命周期
+              volatile的用途
             
           </span>
         </div>
@@ -160,10 +160,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Java
@@ -185,11 +187,87 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../java/%20volatile/" title="volatile的用途" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        volatile的用途
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="volatile的用途" class="md-nav__link md-nav__link--active">
       volatile的用途
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.线程可见性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.防止指令重排序
+  </a>
+  
+    <nav class="md-nav" aria-label="2.防止指令重排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dclvolatile" class="md-nav__link">
+    问题：DCL单例需不需要加volatile？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU的基础知识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volatile_1" class="md-nav__link">
+    volatile如何解决指令重排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -199,7 +277,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../java/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/" title="CAS" class="md-nav__link">
+    <a href="../%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/" title="CAS" class="md-nav__link">
       CAS
     </a>
   </li>
@@ -214,12 +292,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Spring
@@ -243,7 +319,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
+    <a href="../../spring/Spring%20AOP%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" title="Spring AOP实现数据库读写分离" class="md-nav__link">
       Spring AOP实现数据库读写分离
     </a>
   </li>
@@ -255,7 +331,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-nav__link">
+    <a href="../../spring/Spring%20AOP%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E6%8B%A6%E6%88%AA%E5%99%A8/" title="Spring AOP自定义方法拦截器" class="md-nav__link">
       Spring AOP自定义方法拦截器
     </a>
   </li>
@@ -267,7 +343,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-nav__link">
+    <a href="../../spring/Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-nav__link">
       Spring Boot启动流程
     </a>
   </li>
@@ -277,20 +353,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Spring Bean生命周期" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../spring/spring%20bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Spring Bean生命周期" class="md-nav__link">
       Spring Bean生命周期
     </a>
-    
   </li>
 
         
@@ -300,7 +367,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-nav__link">
+    <a href="../../spring/spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-nav__link">
       低配（8g内存）电脑如何设置spring-boot jvm内存
     </a>
   </li>
@@ -312,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../springmvc%20%E6%8B%A6%E6%88%AA%E5%99%A8%E6%89%A7%E8%A1%8C%E4%B8%A4%E9%81%8D/" title="关于SpringMVC拦截器执行两遍的原因分析以及如何解决" class="md-nav__link">
+    <a href="../../spring/springmvc%20%E6%8B%A6%E6%88%AA%E5%99%A8%E6%89%A7%E8%A1%8C%E4%B8%A4%E9%81%8D/" title="关于SpringMVC拦截器执行两遍的原因分析以及如何解决" class="md-nav__link">
       关于SpringMVC拦截器执行两遍的原因分析以及如何解决
     </a>
   </li>
@@ -340,6 +407,57 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.线程可见性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.防止指令重排序
+  </a>
+  
+    <nav class="md-nav" aria-label="2.防止指令重排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dclvolatile" class="md-nav__link">
+    问题：DCL单例需不需要加volatile？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU的基础知识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volatile_1" class="md-nav__link">
+    volatile如何解决指令重排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -354,58 +472,226 @@
                   
                 
                 
-                <h1 id="spring-bean">Spring Bean生命周期</h1>
-<p>Bean factory implementations should support the standard bean lifecycle interfaces as far as possible. The full set of initialization methods and their standard order is:</p>
-<ol>
+                <h1 id="volatile">volatile的用途</h1>
+<h2 id="1">1.线程可见性</h2>
+<pre><code class="java">package com.mashibing.testvolatile;
+
+public class T01_ThreadVisibility {
+    private static volatile boolean flag = true;
+
+    public static void main(String[] args) throws InterruptedException {
+        new Thread(()-&gt; {
+            while (flag) {
+                //do sth
+            }
+            System.out.println(&quot;end&quot;);
+        }, &quot;server&quot;).start();
+
+
+        Thread.sleep(1000);
+
+        flag = false;
+    }
+}
+</code></pre>
+
+<h2 id="2">2.防止指令重排序</h2>
+<h3 id="dclvolatile">问题：DCL单例需不需要加volatile？</h3>
+<h3 id="cpu">CPU的基础知识</h3>
+<ul>
+<li>缓存行对齐
+  缓存行64个字节是CPU同步的基本单位，缓存行隔离会比伪共享效率要高
+  Disruptor</li>
+</ul>
+<p>```java
+  package com.mashibing.juc.c_028_FalseSharing;</p>
+<p>public class T02_CacheLinePadding {
+      private static class Padding {
+          public volatile long p1, p2, p3, p4, p5, p6, p7; //
+      }</p>
+<pre><code>  private static class T extends Padding {
+      public volatile long x = 0L;
+  }
+
+  public static T[] arr = new T[2];
+
+  static {
+      arr[0] = new T();
+      arr[1] = new T();
+  }
+
+  public static void main(String[] args) throws Exception {
+      Thread t1 = new Thread(()-&gt;{
+          for (long i = 0; i &lt; 1000_0000L; i++) {
+              arr[0].x = i;
+          }
+      });
+
+      Thread t2 = new Thread(()-&gt;{
+          for (long i = 0; i &lt; 1000_0000L; i++) {
+              arr[1].x = i;
+          }
+      });
+
+      final long start = System.nanoTime();
+      t1.start();
+      t2.start();
+      t1.join();
+      t2.join();
+      System.out.println((System.nanoTime() - start)/100_0000);
+  }
+</code></pre>
+<p>}</p>
+<p>```</p>
+<p>MESI</p>
+<ul>
 <li>
-<p>==BeanNameAware's <code>setBeanName</code>==</p>
+<p>伪共享</p>
 </li>
 <li>
-<p>==BeanClassLoaderAware's <code>setBeanClassLoader</code>==</p>
+<p>合并写
+  CPU内部的4个字节的Buffer</p>
 </li>
-<li>
-<p>==BeanFactoryAware's <code>setBeanFactory</code>==</p>
-</li>
-<li>
-<p>==EnvironmentAware's <code>setEnvironment</code>==</p>
-</li>
-<li>
-<p>==EmbeddedValueResolverAware's <code>setEmbeddedValueResolver</code>==</p>
-</li>
-<li>
-<p>ResourceLoaderAware's <code>setResourceLoader</code> (only applicable when running in an application context)</p>
-</li>
-<li>
-<p>ApplicationEventPublisherAware's <code>setApplicationEventPublisher</code> (only applicable when running in an application context)</p>
-</li>
-<li>
-<p>MessageSourceAware's <code>setMessageSource</code> (only applicable when running in an application context)</p>
-</li>
-<li>
-<p>ApplicationContextAware's <code>setApplicationContext</code> (only applicable when running in an application context)</p>
-</li>
-<li>
-<p>ServletContextAware's <code>setServletContext</code> (only applicable when running in a web application context)</p>
-</li>
-<li>
-<p>==<code>postProcessBeforeInitialization</code> methods of BeanPostProcessors==</p>
-</li>
-<li>
-<p>==InitializingBean's <code>afterPropertiesSet</code>==</p>
-</li>
-<li>
-<p>==a custom init-method definition==</p>
-</li>
-<li>
-<p>==<code>postProcessAfterInitialization</code> methods of BeanPostProcessors==</p>
-</li>
-</ol>
-<p>On shutdown of a bean factory, the following lifecycle methods apply:</p>
-<ol>
-<li><code>postProcessBeforeDestruction</code> methods of DestructionAwareBeanPostProcessors</li>
-<li>DisposableBean's <code>destroy</code></li>
-<li>a custom destroy-method definition</li>
-</ol>
+</ul>
+<p>```java
+  package com.mashibing.juc.c_029_WriteCombining;</p>
+<p>public final class WriteCombining {</p>
+<pre><code>  private static final int ITERATIONS = Integer.MAX_VALUE;
+  private static final int ITEMS = 1 &lt;&lt; 24;
+  private static final int MASK = ITEMS - 1;
+
+  private static final byte[] arrayA = new byte[ITEMS];
+  private static final byte[] arrayB = new byte[ITEMS];
+  private static final byte[] arrayC = new byte[ITEMS];
+  private static final byte[] arrayD = new byte[ITEMS];
+  private static final byte[] arrayE = new byte[ITEMS];
+  private static final byte[] arrayF = new byte[ITEMS];
+
+  public static void main(final String[] args) {
+
+      for (int i = 1; i &lt;= 3; i++) {
+          System.out.println(i + " SingleLoop duration (ns) = " + runCaseOne());
+          System.out.println(i + " SplitLoop  duration (ns) = " + runCaseTwo());
+      }
+  }
+
+  public static long runCaseOne() {
+      long start = System.nanoTime();
+      int i = ITERATIONS;
+
+      while (--i != 0) {
+          int slot = i &amp; MASK;
+          byte b = (byte) i;
+          arrayA[slot] = b;
+          arrayB[slot] = b;
+          arrayC[slot] = b;
+          arrayD[slot] = b;
+          arrayE[slot] = b;
+          arrayF[slot] = b;
+      }
+      return System.nanoTime() - start;
+  }
+
+  public static long runCaseTwo() {
+      long start = System.nanoTime();
+      int i = ITERATIONS;
+      while (--i != 0) {
+          int slot = i &amp; MASK;
+          byte b = (byte) i;
+          arrayA[slot] = b;
+          arrayB[slot] = b;
+          arrayC[slot] = b;
+      }
+      i = ITERATIONS;
+      while (--i != 0) {
+          int slot = i &amp; MASK;
+          byte b = (byte) i;
+          arrayD[slot] = b;
+          arrayE[slot] = b;
+          arrayF[slot] = b;
+      }
+      return System.nanoTime() - start;
+  }
+</code></pre>
+<p>}</p>
+<p>```</p>
+<ul>
+<li>指令重排序</li>
+</ul>
+<p>```java
+  package com.mashibing.jvm.c3_jmm;</p>
+<p>public class T04_Disorder {
+      private static int x = 0, y = 0;
+      private static int a = 0, b =0;</p>
+<pre><code>  public static void main(String[] args) throws InterruptedException {
+      int i = 0;
+      for(;;) {
+          i++;
+          x = 0; y = 0;
+          a = 0; b = 0;
+          Thread one = new Thread(new Runnable() {
+              public void run() {
+                  //由于线程one先启动，下面这句话让它等一等线程two. 读着可根据自己电脑的实际性能适当调整等待时间.
+                  //shortWait(100000);
+                  a = 1;
+                  x = b;
+              }
+          });
+
+          Thread other = new Thread(new Runnable() {
+              public void run() {
+                  b = 1;
+                  y = a;
+              }
+          });
+          one.start();other.start();
+          one.join();other.join();
+          String result = "第" + i + "次 (" + x + "," + y + "）";
+          if(x == 0 &amp;&amp; y == 0) {
+              System.err.println(result);
+              break;
+          } else {
+              //System.out.println(result);
+          }
+      }
+  }
+
+
+  public static void shortWait(long interval){
+      long start = System.nanoTime();
+      long end;
+      do{
+          end = System.nanoTime();
+      }while(start + interval &gt;= end);
+  }
+</code></pre>
+<p>}
+  ```</p>
+<h3 id="volatile_1">volatile如何解决指令重排序</h3>
+<p>1: volatile i</p>
+<p>2: ACC_VOLATILE</p>
+<p>3: JVM的内存屏障</p>
+<p>4：hotspot实现</p>
+<p>bytecodeinterpreter.cpp</p>
+<pre><code class="c++">int field_offset = cache-&gt;f2_as_index();
+          if (cache-&gt;is_volatile()) {
+            if (support_IRIW_for_not_multiple_copy_atomic_cpu) {
+              OrderAccess::fence();
+            }
+</code></pre>
+
+<p>orderaccess_linux_x86.inline.hpp</p>
+<pre><code class="c++">inline void OrderAccess::fence() {
+  if (os::is_MP()) {
+    // always use locked addl since mfence is sometimes expensive
+#ifdef AMD64
+    __asm__ volatile (&quot;lock; addl $0,0(%%rsp)&quot; : : : &quot;cc&quot;, &quot;memory&quot;);
+#else
+    __asm__ volatile (&quot;lock; addl $0,0(%%esp)&quot; : : : &quot;cc&quot;, &quot;memory&quot;);
+#endif
+  }
+}
+</code></pre>
                 
               
               
@@ -424,7 +710,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="">
         
-          <a href="../Spring%20Boot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/" title="Spring Boot启动流程" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -433,19 +719,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                Spring Boot启动流程
+                Home
               </div>
             </div>
           </a>
         
         
-          <a href="../spring%20boot%20jvm%20%E5%86%85%E5%AD%98%E8%AE%BE%E7%BD%AE/" title="低配（8g内存）电脑如何设置spring-boot jvm内存" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/" title="CAS" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                低配（8g内存）电脑如何设置spring-boot jvm内存
+                CAS
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
